@@ -1,22 +1,20 @@
 package com.lamppit.desafio;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.UniqueConstraint;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.lamppit.desafio.model.Projeto;
-import com.lamppit.desafio.repository.ProjetoRepository;
 
 @SpringBootApplication
 public class BackendApplication implements CommandLineRunner{
 
-	@Autowired
-	private ProjetoRepository projetoRepository;
-	
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
 	}
@@ -33,9 +31,12 @@ public class BackendApplication implements CommandLineRunner{
 		Projeto proj3 = new Projeto(null, "Projeto UFPB", "universidade federal da paraiba", 50000.0, data_inicio, data_encerramento);
 		Projeto proj4 = new Projeto(null, "TRE", "Tribunal Regional Eleitoral", 200000.0, data_inicio, data_encerramento);
 
-		projetoRepository.saveAll(Arrays.asList(proj1,proj2,proj3,proj4));
+		List<Projeto> lista = new ArrayList<>();
+		lista.add(proj1);
+		lista.add(proj2);
+		lista.add(proj3);
 		
-		
+		Projeto proj1 = new Projeto
 		
 	}
 

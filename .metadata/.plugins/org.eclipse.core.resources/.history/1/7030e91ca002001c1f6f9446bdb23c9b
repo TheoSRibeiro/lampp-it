@@ -1,0 +1,59 @@
+package com.lamppit.desafio;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.UniqueConstraint;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.lamppit.desafio.model.Projeto;
+
+@SpringBootApplication
+public class BackendApplication implements CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(BackendApplication.class, args);
+	}
+	
+	@Override
+	public void run(String... args) throws Exception{
+		
+		
+		Date data_inicio = new Date();
+		Date data_encerramento = new Date();
+
+		Projeto proj1 = new Projeto(1, "Projeto Detran", Detran SEDE, 1000.00, data_inicio, data_encerramento);
+		Projeto proj2 = new Projeto(2, "Projeto DataPrev", "previdencia Social", 3000.00, data_inicio, data_encerramento);
+		Projeto proj3 = new Projeto(3, "Projeto UFPB", "universidade federal da paraiba", 50000.0, data_inicio, data_encerramento);
+		Projeto proj4 = new Projeto(4, "TRE", "Tribunal Regional Eleitoral", 200000.0, data_inicio, data_encerramento);
+
+		List<Projeto> lista = new ArrayList<>();
+		lista.add(proj1);
+		lista.add(proj2);
+		lista.add(proj3);
+		
+		Projeto proj1 = new Projeto
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

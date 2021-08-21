@@ -23,6 +23,8 @@ public class Projeto implements Serializable{
 	private Date data_inicio;
 	private Date data_encerramento;
 	
+	//private Oportunidades oportunidades_pk;
+	
 	
 
 	public Projeto() {
@@ -39,6 +41,7 @@ public class Projeto implements Serializable{
 		this.valor = valor;
 		this.data_inicio = data_inicio;
 		this.data_encerramento = data_encerramento;
+//		this.oportunidades_pk = oportunidades_pk;
 	}
 
 
@@ -90,6 +93,15 @@ public class Projeto implements Serializable{
 	public void setData_encerramento(Date data_encerramento) {
 		this.data_encerramento = data_encerramento;
 	}
+
+//	public Oportunidades getOportunidades_pk() {
+//		return oportunidades_pk;
+//	}
+//
+//	public void setOportunidades_pk(Oportunidades oportunidades_pk) {
+//		this.oportunidades_pk = oportunidades_pk;
+//	}
+
 
 
 	@Override

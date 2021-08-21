@@ -1,0 +1,14 @@
+package com.lamppit.desafio.service;
+
+import org.springframework.stereotype.Service;
+
+import com.lamppit.desafio.repository.ProjetoRepository;
+
+@Service
+public class ProjetoService {
+	
+	@Autowired // automaticamente instanciada pelo Spring boot
+	private ProjetoRepository repo;
+	
+	public
+}
