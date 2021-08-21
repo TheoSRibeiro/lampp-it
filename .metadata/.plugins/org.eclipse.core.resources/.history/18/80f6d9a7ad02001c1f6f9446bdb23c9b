@@ -22,7 +22,7 @@ public class ProjetoService {
 		if(obj == null) {
 			throw new ObjectNotFoundException("Objeto não encontrado! Id: "+id + ",Tipo: "+ Projeto.class.getName());
 		}
-		return obj.orElse(null);
+		return obj;
 	}
 	
 	public Projeto insert(Projeto obj) {
@@ -30,14 +30,14 @@ public class ProjetoService {
 		return repo.save(obj);
 	}
 	
-	public Projeto update(Projeto obj) throws ObjectNotFoundException {
+	public Projeto update(Projeto obj) {
 		find(obj.getId());
 		return repo.save(obj);
 	}
 	
-	public void delete(Integer id) throws ObjectNotFoundException {
+	public void delete(Integer id) {
 		find(id);
-		repo.deleteById(id);
+		repo.delete(id);
 	}
 }
 

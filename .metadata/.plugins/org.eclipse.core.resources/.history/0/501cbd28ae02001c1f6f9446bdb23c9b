@@ -55,6 +55,7 @@ public class ProjetoController {
 	public ResponseEntity<Void> delete(@PathVariable Integer id) throws ObjectNotFoundException {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
+		
 	}
 	
 	

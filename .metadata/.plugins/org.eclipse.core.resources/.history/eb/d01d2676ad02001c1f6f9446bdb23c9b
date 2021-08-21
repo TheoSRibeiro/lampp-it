@@ -16,11 +16,11 @@ public class ProjetoService {
 	@Autowired // automaticamente instanciada pelo Spring boot
 	private ProjetoRepository repo;
 	
-	public Projeto find(Integer id) throws ObjectNotFoundException {
+	public Projeto find(Integer id) {
 		Optional<Projeto> obj = repo.findById(id);
 		
 		if(obj == null) {
-			throw new ObjectNotFoundException("Objeto não encontrado! Id: "+id + ",Tipo: "+ Projeto.class.getName());
+			throw new ObjectNotFoundException("Objeto não encontrado! \nId: "+id + ",\nTipo: "+ Projeto.class.getName());
 		}
 		return obj.orElse(null);
 	}
@@ -30,14 +30,14 @@ public class ProjetoService {
 		return repo.save(obj);
 	}
 	
-	public Projeto update(Projeto obj) throws ObjectNotFoundException {
+	public Projeto update(Projeto obj) {
 		find(obj.getId());
 		return repo.save(obj);
 	}
 	
-	public void delete(Integer id) throws ObjectNotFoundException {
+	public void delete(Integer id) {
 		find(id);
-		repo.deleteById(id);
+		repo.delete(id);
 	}
 }
 
