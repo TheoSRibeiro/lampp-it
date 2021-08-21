@@ -30,9 +30,9 @@ public class ProjetoController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> insert(@RequestBody Projeto obj){ //@RequestBody faz o JSon seja convertido para obj JAVA
+	public ResponseEntity<Void> insert(@RequestBody Projeto obj){
 		obj = service.insert(obj);
-		//capturar o id criado e retornar a uri contendo o novo id como resposta da inserção
+		//capturar o id passado na url e retornar a uri como resposta da inserção
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		//retornar o 201
 		return ResponseEntity.created(uri).build();

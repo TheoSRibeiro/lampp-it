@@ -29,14 +29,15 @@ public class ProjetoController {
 		
 	}
 	
-	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> insert(@RequestBody Projeto obj){ //@RequestBody faz o JSon seja convertido para obj JAVA
-		obj = service.insert(obj);
-		//capturar o id criado e retornar a uri contendo o novo id como resposta da inserção
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		//retornar o 201
-		return ResponseEntity.created(uri).build();
-	}
+	
+	@RequestMapping(method=RequestMethod.GET)
+//	public ResponseEntity<void> insert(@RequestBody Projeto obj){
+//		obj = service.insert(obj);
+//		//capturar o id passado na url
+//		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+//		//retornar o 201
+//		return ResponseEntity.created(uri).build();
+//	}
 	
 }
 

@@ -20,8 +20,7 @@ public class ProjetoService {
 	}
 	
 	public Projeto insert(Projeto obj) {
-		obj.setId(null);
-		return repo.save(obj);
+		return repo.saveAll(obj);
 	}
 	
 }
