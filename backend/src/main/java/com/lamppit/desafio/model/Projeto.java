@@ -1,22 +1,51 @@
 package com.lamppit.desafio.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Projeto implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	//MAPEAMENTO OBJETO-RELACIONAL
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String nome;
+	private String descricao;
+	private Double valor;
+	private Date data_inicio;
+	private Date data_encerramento;
+	
+	private Oportunidades oportunidades_pk;
+	
+	
 
 	public Projeto() {
 		
 	}
 
-	public Projeto(Integer id, String nome) {
+	
+
+	public Projeto(Integer id, String nome, String descricao, Double valor, Date data_inicio, Date data_encerramento,
+			Oportunidades oportunidades_pk) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.descricao = descricao;
+		this.valor = valor;
+		this.data_inicio = data_inicio;
+		this.data_encerramento = data_encerramento;
+		this.oportunidades_pk = oportunidades_pk;
 	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -33,6 +62,48 @@ public class Projeto implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public Date getData_inicio() {
+		return data_inicio;
+	}
+
+	public void setData_inicio(Date data_inicio) {
+		this.data_inicio = data_inicio;
+	}
+
+	public Date getData_encerramento() {
+		return data_encerramento;
+	}
+
+	public void setData_encerramento(Date data_encerramento) {
+		this.data_encerramento = data_encerramento;
+	}
+
+	public Oportunidades getOportunidades_pk() {
+		return oportunidades_pk;
+	}
+
+	public void setOportunidades_pk(Oportunidades oportunidades_pk) {
+		this.oportunidades_pk = oportunidades_pk;
+	}
+
+
 
 	@Override
 	public int hashCode() {
