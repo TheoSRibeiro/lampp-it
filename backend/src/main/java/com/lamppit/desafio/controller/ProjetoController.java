@@ -1,0 +1,31 @@
+package com.lamppit.desafio.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lamppit.desafio.model.Projeto;
+
+@RestController
+@RequestMapping(value="/projetos")
+public class ProjetoController {
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public List<Projeto> listar() {
+		
+		Projeto proj1 = new Projeto(1, "Projeto Detran");
+		Projeto proj2 = new Projeto(2, "Projeto DataPrev");
+		Projeto proj3 = new Projeto(3, "Projeto UFPB");
+		
+		List<Projeto> lista = new ArrayList<>();
+		lista.add(proj1);
+		lista.add(proj2);
+		lista.add(proj3);
+		
+		return lista;
+	}
+	
+}
