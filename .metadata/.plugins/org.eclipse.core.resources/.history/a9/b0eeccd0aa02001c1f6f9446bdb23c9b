@@ -24,7 +24,7 @@ public class ProjetoController {
 	@RequestMapping(value="{id}", method=RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 		
-		Projeto obj = service.find(id);
+		Projeto obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 		
 	}
@@ -41,12 +41,7 @@ public class ProjetoController {
 	
 	//ATUALIZAR
 	@RequestMapping(value="{id}", method=RequestMethod.PUT)
-	public ResponseEntity<Void> update(@RequestBody Projeto obj, @PathVariable Integer id){
-		//garantir que o id seja o mesmo que vai ser atualizado
-		obj.setId(id);
-		obj = service.update(obj);
-		
-		return ResponseEntity.noContent().build();
+	public ResponseEntity<Void> update(){
 		
 	}
 	

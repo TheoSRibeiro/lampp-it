@@ -24,11 +24,6 @@ public class ProjetoService {
 		return repo.save(obj);
 	}
 	
-	public Projeto update(Projeto obj) {
-		find(obj.getId());
-		return repo.save(obj);
-	}
-	
 }
 
 
