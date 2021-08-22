@@ -3,7 +3,6 @@ package com.lamppit.desafio.controller;
 import java.net.URI;
 import java.util.List;
 
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,23 +21,15 @@ public class ProjetoController {
 	
 	@Autowired
 	private ProjetoService service;
-
-	//CAPTURAR
+	
 	@RequestMapping(value="{id}", method=RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) throws ObjectNotFoundException {
-
+	public ResponseEntity<?> find(@PathVariable Integer id) {
+		
 		Projeto obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
-
+		
 	}
 	
-	//CAPTURAR TODOS 
-	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Projeto>> findAll() {
-		List<Projeto> list = service.findAll();
-		return ResponseEntity.ok().body(list);
-	}
-
 	//INSERIR
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody Projeto obj){ //@RequestBody faz o JSon seja convertido para obj JAVA
@@ -48,23 +39,21 @@ public class ProjetoController {
 		//retornar o 201
 		return ResponseEntity.created(uri).build();
 	}
-
+	
 	//ATUALIZAR
 	@RequestMapping(value="{id}", method=RequestMethod.PUT)
-	public ResponseEntity<Void> update(@RequestBody Projeto obj, @PathVariable Integer id) throws ObjectNotFoundException{
+	public ResponseEntity<Void> update(@RequestBody Projeto obj, @PathVariable Integer id){
 		//garantir que o id seja o mesmo que vai ser atualizado
 		obj.setId(id);
 		obj = service.update(obj);
-
-		return ResponseEntity.noContent().build();
+		
+		return ResponseEntity.noContent().build();	
 	}
-
-	//DELETAR
-	@RequestMapping(value="{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable Integer id) throws ObjectNotFoundException {
-		service.delete(id);
-		return ResponseEntity.noContent().build();
-
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<Projeto>> findAll() {
+		List<Projeto> list = service.findAll();
+		return ResponseEntity.ok().body(list);
 	}
 	
 	
