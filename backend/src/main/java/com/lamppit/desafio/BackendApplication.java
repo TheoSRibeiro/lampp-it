@@ -25,16 +25,6 @@ public class BackendApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception{
 		
 		
-		Date data_inicio = new Date();
-		Date data_encerramento = new Date();
-
-		Projeto proj1 = new Projeto(null, "Projeto Detran", "Detran SEDE", 1000.00, data_inicio, data_encerramento);
-		Projeto proj2 = new Projeto(null, "Projeto DataPrev", "previdencia Social", 3000.00, data_inicio, data_encerramento);
-		Projeto proj3 = new Projeto(null, "Projeto UFPB", "universidade federal da paraiba", 50000.0, data_inicio, data_encerramento);
-		Projeto proj4 = new Projeto(null, "TRE", "Tribunal Regional Eleitoral", 200000.0, data_inicio, data_encerramento);
-
-		projetoRepository.saveAll(Arrays.asList(proj1,proj2,proj3,proj4));
-		
 		
 		
 	}

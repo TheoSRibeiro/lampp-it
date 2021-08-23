@@ -1,0 +1,51 @@
+package com.lamppit.desafio.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+
+
+@Configuration
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
+	@Autowired
+    private Environment env;
+
+    private static final String[] PUBLIC_MATCHERS = {
+        "/postgresql/**",
+    };
+
+    private static final String[] PUBLIC_MATCHERS_GET = {
+        "/projetos/**"
+    };
+
+    private static final String[] PUBLIC_MATCHERS_POST = {
+        "/projetos/**"
+    };
+
+   
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+
+        //dar acesso ao postgress
+        
+        http.headers().frameOptions().disable();
+        
+
+        http.cors().and().csrf().disable(); //desabilitar a secao do usuario
+        http.authorizeRequests()
+            .antMatchers(HttpMethod.POST, PUBLIC_MATCHERS_POST).permitAll()
+            .antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_GET).permitAll()
+            .anyRequest().authenticated();
+    }
+
+        
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+        .allowedOrigins("*")
+        .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH", "OPTIONS");
+    }
+    
+}

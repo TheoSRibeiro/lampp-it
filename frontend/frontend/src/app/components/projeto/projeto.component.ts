@@ -11,16 +11,21 @@ export class ProjetoComponent implements OnInit {
 
   projetos: Projeto[]
 
-  constructor(public projetoService: ProjetoService) { }
+  constructor(public projetoService: ProjetoService,
+              ) { 
 
-  ngOnInit(): void {
+    }
+
+  ngOnInit(): void{
+    /* console.log("entrei Projetos")
     this.projetoService.getProjetos()
       .subscribe(response => {
         this.projetos = response;    
       },
       error => {
         
-      });
+      }); */
+      this.projetoService.getProjetos();
   }
 
 }

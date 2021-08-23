@@ -1,0 +1,8 @@
+package com.lamppit.desafio.service;
+
+@Service
+public class dbService {
+	public void instantiateTestDatabase() throws ParseException {
+		
+	}
+}

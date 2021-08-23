@@ -1,0 +1,31 @@
+package com.lamppit.desafio.service;
+
+import java.text.ParseException;
+import java.util.Arrays;
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lamppit.desafio.model.Projeto;
+import com.lamppit.desafio.repository.ProjetoRepository;
+
+@Service
+public class DBService {
+	
+	@Autowired // instanciado automaticamente
+	private ProjetoRepository projetoRepository;
+	
+	
+	public void instantiateTestDatabase() throws ParseException {
+		Date data_inicio = new Date();
+		Date data_encerramento = new Date();
+
+		Projeto proj1 = new Projeto(null, "Projeto Detran", "Detran SEDE", 1000.00, data_inicio, data_encerramento);
+		Projeto proj2 = new Projeto(null, "Projeto DataPrev", "previdencia Social", 3000.00, data_inicio, data_encerramento);
+		Projeto proj3 = new Projeto(null, "Projeto UFPB", "universidade federal da paraiba", 50000.0, data_inicio, data_encerramento);
+		Projeto proj4 = new Projeto(null, "TRE", "Tribunal Regional Eleitoral", 200000.0, data_inicio, data_encerramento);
+
+		projetoRepository.saveAll(Arrays.asList(proj1,proj2,proj3,proj4));
+	}
+}
