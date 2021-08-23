@@ -1,9 +1,38 @@
 <!DOCTYPE html>
 <html>
     <body ng-app="projeto">
-        <div>
+        <!-- <div *ngFor="let projeto of projetos">
+            <h2>{{ projeto.nome }}</h2>
+        </div> -->
+        
+        <!-- <h1 ng-repeat="projeto in projetos | orderBy:'-id':true">{{ projeto.id }} </h1> -->
+        
+        <mat-card *ngFor="let projeto of projetos">
+            <mat-card-header>
+              <div>
+
+              </div>
+              <mat-card-title>{{projeto.nome}}</mat-card-title>
+              
+            </mat-card-header>
             
-        </div>
+            <mat-card-content>
+              <p>{{projeto.descricao}}</p>
+              <p>{{projeto.valor}}</p>
+              <p>{{projeto.data_inicio}}</p>
+              <p>{{projeto.data_encerramento}}</p>
+
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button (click)="confirmeExcluir(projeto)">Deletar</button>
+              
+            </mat-card-actions>
+          </mat-card>
+            
+            
+
+            
+        
     </body>
     
     
