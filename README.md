@@ -10,3 +10,5 @@ Inserir a senha do DB: 123456, o user: postgres, ip: localhost, porta 5433, cria
 
 Para inicializar o projeto frontend, primeiramente instalar o Angular Cli, versão 11 (npm install -g @angular/cli@11.2.14);
 
+Entrar na pasta frontend/frontend e inicializar o projeto com o comando: ng serve --open
+
